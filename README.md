@@ -1,75 +1,69 @@
-# React + TypeScript + Vite
+# 🚀 Rick and Morty App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto creado con **Bun**, **Vite**, **React**, **TailwindCSS** y **TypeScript**.  
+La aplicación organiza sus componentes y páginas en una estructura modular y las rutas se gestionan desde `AppRoutes.tsx`.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Estructura de carpetas
 ```
+src/
+├── components/      # Componentes reutilizables (UI, cards, layouts...)
+├── hooks/           # Custom hooks compartidos
+├── models/          # Tipos e interfaces TypeScript
+├── pagePublic/     # Páginas públicas (Home, Login, Register...)
+├── App.tsx          # Componente raíz de la aplicación
+├── AppRoutes.tsx    # Archivo central de configuración de rutas
+└── main.tsx         # Punto de entrada principal del proyecto
+```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Tecnologías
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [Bun](https://bun.sh) → Runtime ultrarrápido para JS/TS  
+- [Vite](https://vitejs.dev) → Bundler y dev server veloz  
+- [React](https://react.dev) → Librería para UI  
+- [TailwindCSS](https://tailwindcss.com) → Estilos utilitarios y responsive  
+- [TypeScript](https://www.typescriptlang.org) → Tipado estático para mayor seguridad  
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Instalación
+
+## 1. Clonar el repositorio
+```bash
+git clone "https://github.com/FacundoAylan/Rick-and-Morty.git"
+```
+## 2. Navegar al directorio del proyecto
+```bash
+cd Rick-and-Morty
+```
+## 3. Instalar las dependencias (usando Bun)
+```bash
+bun install
+```
+## 4. Levantar el servidor de desarrollo
+```bash
+bun run dev
+```
+---
+## Las rutas principales están definidas en AppRoutes.tsx. Ejemplo de configuración:
+```bash
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "@/pagePublick/Home";
+import Login from "@/pagePublick/Login";
+
+/**
+ * Definición de las rutas principales de la aplicación.
+ */
+export const AppRoutes = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      {/* Añade aquí más rutas, como /dashboard, /characters/:id, etc. */}
+    </Routes>
+  </BrowserRouter>
+);
+);
 ```
