@@ -1,6 +1,13 @@
 import { CardButton } from "../../../components"
+import type { Character } from "../../../models/character.model";
+import { CharacterDetailModal } from "./CharacterDetailModal";
 
-export const Card = ({ character }: any) => {
+interface Props {
+  character: Character;
+  onViewMore: ()=>void;
+}
+
+export const CharacterCard = ({ character, onViewMore }: Props) => {
 
   return (
     <div className="
@@ -36,11 +43,13 @@ export const Card = ({ character }: any) => {
       </div>
 
       <CardButton 
-        parentMethod={()=>console.log("hola")} 
+        parentMethod={onViewMore} 
         image={character.image} className="mx-auto"
       >
         View more
       </CardButton>
+
+      <CharacterDetailModal id={character.id} />
     </div>
   )
 }
