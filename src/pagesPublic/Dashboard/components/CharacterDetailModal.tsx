@@ -2,13 +2,18 @@ import { Modal } from "../../../components";
 import { useFetch } from "../../../hooks/useFetch";
 import type { Character } from "../../../models/character.model";
 
-export const CharacterDetailModal = ({ id }: { id: number }) => {
+interface Props {
+  id: number;
+}
+
+export const CharacterDetailModal = ({ id }: Props) => {
 
   const { data, loading, error } = useFetch<Character>(`https://rickandmortyapi.com/api/character/${id}`);
 
   if (loading) return <div>Cargando...</div>;
   if (error) return <div>Error cargando personaje</div>;
 
+  console.log(data, id);
   return (
     <Modal>
       <div className="flex mt-8">

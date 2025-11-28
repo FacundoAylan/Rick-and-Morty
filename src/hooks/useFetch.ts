@@ -45,7 +45,7 @@ export const useFetch = <T>(url:string):Params<T>=>{
     return ()=>{
       controller.abort();
     }
-  },[])
+  },[url])
 
   return { data, loading, error}
 }

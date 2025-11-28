@@ -44,6 +44,7 @@ export const Dashboard = ()=>{
           />
         ))}
       </section>
+      
       {selectedId && <CharacterDetailModal id={selectedId} />}
       
       <Footer />

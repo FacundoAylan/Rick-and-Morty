@@ -1,6 +1,5 @@
 import { CardButton } from "../../../components"
 import type { Character } from "../../../models/character.model";
-import { CharacterDetailModal } from "./CharacterDetailModal";
 
 interface Props {
   character: Character;
@@ -49,7 +48,6 @@ export const CharacterCard = ({ character, onViewMore }: Props) => {
         View more
       </CardButton>
 
-      <CharacterDetailModal id={character.id} />
     </div>
   )
 }
