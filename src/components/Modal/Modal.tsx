@@ -47,18 +47,18 @@ export const Modal = ({ children }: Prop) => {
         onClick={handleContectClick}
         ref={modalRef}
         className="relative w-1/2 min-h-1/2 max-h-screen rounded-4xl border-4 border-purple-700 
-    bg-gradient-to-b from-gray-900 via-black to-gray-800 
-    shadow-lg p-6"
+          bg-gradient-to-b from-gray-900 via-black to-gray-800 
+          shadow-lg p-6"
       >
         {/* Botón estilo Rick & Morty */}
         <button
           onClick={closeModal}
           className="absolute top-3 right-3 text-2xl font-bold 
-      text-green-400 hover:text-pink-400 
-      transition-transform duration-300 
-      hover:rotate-180 hover:scale-125
-      drop-shadow-[0_0_10px_rgba(0,255,150,0.8)]
-      animate-pulse cursor-pointer"
+            text-green-400 hover:text-pink-400 
+            transition-transform duration-300 
+            hover:rotate-180 hover:scale-125
+            drop-shadow-[0_0_10px_rgba(0,255,150,0.8)]
+            animate-pulse cursor-pointer"
         >
           ✖
         </button>
