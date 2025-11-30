@@ -5,6 +5,7 @@ import type { Character } from "../../models/character.model";
 import { Footer, NavBar } from "../section";
 import { CharacterCard, CharacterDetailModal } from "./components";
 import { useModalContext } from "../../components/Modal/context";
+import { IsErrorPage, IsLoading } from "../../components";
 
 interface APIResponse {
   results: Character[];
@@ -23,13 +24,9 @@ export const Dashboard = ()=>{
   };
 
 
-  if(loading){
-    <div>Cargando la pagina</div>
-  }
+  if(loading) return <IsLoading/>;
 
-  if(error){
-    <div>No se pudo traer la información</div>
-  }
+  if(error) return <IsErrorPage/>;
 
   return(
     <div className="w-full h-screen overflow-hidden flex flex-col">

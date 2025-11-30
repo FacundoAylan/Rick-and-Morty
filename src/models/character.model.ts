@@ -1,6 +1,15 @@
-interface LocationProp {
+export interface EpisodeProps {
+  id: number;
   name: string;
-  url: string;
+  air_date: string;
+  episode: string;
+}
+
+export interface LocationProps {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
 }
 
 export interface Character {
@@ -10,10 +19,12 @@ export interface Character {
   species: string;
   type: string;
   gender: string;
-  origin: LocationProp;
-  location: LocationProp;
+  origin: LocationProps;
+  location: LocationProps;
   image: string;
   episode: string[];
   url: string;
   created: string;
 }
+
+

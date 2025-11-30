@@ -1,68 +1,18 @@
-import { useEffect, useState } from "react";
-import { Modal } from "../../../components";
-import type { Character } from "../../../models/character.model";
+import { IsErrorPage, IsLoading, Modal } from "../../../components";
 import { Carrucel } from "../../../components";
-interface EpisodeProps {
-  id: number;
-  name: string;
-  air_date: string;
-  episode: string;
-}
-
-interface LocationProps {
-  id: number;
-  name: string;
-  type: string;
-  dimension: string;
-}
+import { useFetchDetailed } from "../../../hooks/useFetchDetailed";
 
 interface Props {
   id: number;
 }
 
 export const CharacterDetailModal = ({ id }: Props) => {
-  const [character, setCharacter] = useState<Character | null>(null);
-  const [location, setLocation] = useState<LocationProps | null>(null);
-  const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
 
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
+  const { character, location, episodes, loading, error } = useFetchDetailed(id);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
 
-        // 1. Character
-        const charRes = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
-        const charData = await charRes.json();
-        setCharacter(charData);
-
-        // 2. Location
-        if (charData.location.url) {
-          const locRes = await fetch(charData.location.url);
-          setLocation(await locRes.json());
-        }
-
-        // 3. Episodes
-        const episodesData = await Promise.all(
-          charData.episode.map((url: string) => fetch(url).then(res => res.json()))
-        );
-        setEpisodes(episodesData);
-
-      } catch (err) {
-        console.error(err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [id]);
-
-  if (loading) return <div>Cargando...</div>;
-  if (error) return <div>Error cargando personaje</div>;
+  if (loading) return <IsLoading/>;
+  if (error) return <IsErrorPage />;
 
   return (
     <Modal>
