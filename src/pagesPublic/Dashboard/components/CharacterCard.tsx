@@ -21,8 +21,8 @@ export const CharacterCard = ({ character, onViewMore }: Props) => {
       text-center 
     ">
       <h1 className="
-        text-3xl font-extrabold text-green-400 mb-2 tracking-wide 
-        break-words line-clamp-1
+        text-3xl font-extrabold text-green-600 mb-2 tracking-wide 
+        break-words line-clamp-1 font-new
       ">
         {character.name}
       </h1>
@@ -37,8 +37,8 @@ export const CharacterCard = ({ character, onViewMore }: Props) => {
       />
 
       <div className="text-sm text-gray-200 space-y-1 mb-4 flex-grow">
-        <p><span className="text-purple-400 font-semibold">Species:</span> {character.species}</p>
-        <p><span className="text-purple-400 font-semibold">Gender:</span> {character.gender}</p>
+        <p><span className="text-green-400 font-semibold">Species:</span> {character.species}</p>
+        <p><span className="text-green-400 font-semibold">Gender:</span> {character.gender}</p>
       </div>
 
       <CardButton 
