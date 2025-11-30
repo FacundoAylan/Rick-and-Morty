@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Character, EpisodeProps, LocationProps } from "../models/character.model";
 
-export const useFetchDetailed = (id: number) => {
+export const useFetchDetailed = (url: string) => {
   const [character, setCharacter] = useState<Character | null>(null);
   const [location, setLocation] = useState<LocationProps | null>(null);
   const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
@@ -10,14 +10,14 @@ export const useFetchDetailed = (id: number) => {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
+    
+    setLoading(true);
+
     const fetchData = async () => {
       try {
-        setLoading(true);
 
         // 1. Character
-        const charRes = await fetch(
-          `https://rickandmortyapi.com/api/character/${id}`
-        );
+        const charRes = await fetch(url);
         const charData = await charRes.json();
         setCharacter(charData);
 
@@ -44,7 +44,8 @@ export const useFetchDetailed = (id: number) => {
     };
 
     fetchData();
-  }, [id]);
+
+  }, [url]);
 
   return { character, location, episodes, loading, error };
 };

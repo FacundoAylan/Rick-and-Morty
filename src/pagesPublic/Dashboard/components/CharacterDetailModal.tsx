@@ -6,10 +6,11 @@ interface Props {
   id: number;
 }
 
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
 export const CharacterDetailModal = ({ id }: Props) => {
 
-  const { character, location, episodes, loading, error } = useFetchDetailed(id);
-
+  const { character, location, episodes, loading, error } = useFetchDetailed(`${apiUrl}/${id}`);
 
   if (loading) return <IsLoading/>;
   if (error) return <IsErrorPage />;

@@ -42,6 +42,10 @@ cd Rick-and-Morty
 ```bash
 bun install
 ```
+## 4. Crear el archivo .env
+```bash
+  VITE_API_BASE_URL=https://rickandmortyapi.com/api/character
+```
 ## 4. Levantar el servidor de desarrollo
 ```bash
 bun run dev

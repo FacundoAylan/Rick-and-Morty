@@ -11,9 +11,11 @@ interface APIResponse {
   results: Character[];
 }
 
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
 export const Dashboard = ()=>{
 
-  const {data, loading, error} = useFetch<APIResponse>("https://rickandmortyapi.com/api/character");
+  const {data, loading, error} = useFetch<APIResponse>(apiUrl);
 
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const { setState } = useModalContext();
