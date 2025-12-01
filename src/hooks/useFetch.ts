@@ -40,7 +40,6 @@ export const useFetch = <T>(url:string):Params<T>=>{
     }
 
     fetchData();
-    
   },[url])
 
   return { data, loading, error}

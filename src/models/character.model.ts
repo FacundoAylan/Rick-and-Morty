@@ -15,7 +15,7 @@ export interface LocationProps {
 export interface Character {
   id: number;
   name: string;
-  status: "Alive" | "Dead" | "unknown";
+  status: string;
   species: string;
   type: string;
   gender: string;
@@ -25,6 +25,12 @@ export interface Character {
   episode: string[];
   url: string;
   created: string;
+}
+
+// Initial state
+export interface CharactersState {
+  items: Character[];
+  filteredItems: Character[];
 }
 
 

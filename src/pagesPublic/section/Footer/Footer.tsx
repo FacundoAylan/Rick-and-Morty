@@ -2,7 +2,7 @@ export const Footer = () => {
   return (
     <footer
       className="
-        w-full 
+        w-full
         bg-gradient-to-r from-gray-900 via-black to-gray-800 
         border-t-4 border-purple-700 
         py-2 px-4 
