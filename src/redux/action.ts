@@ -17,7 +17,6 @@ export const characterSlice = createSlice({
       );
       state.items = [...state.items, ...newCharacters];
 
-      // Si filteredItems está vacío, inicializarlo
       if (state.filteredItems.length === 0) {
         state.filteredItems = [...state.items];
       }

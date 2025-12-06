@@ -21,11 +21,13 @@ export const Dashboard = ()=>{
   const characters = useSelector((state:RootState) => state.characters.filteredItems);
   const dispatch = useDispatch<AppDispatch>();
 
-  const {data, loading, error} = useFetch<APIResponse>(apiUrl);
+  const [page, setPage] = useState<number>(1);
+  const {data, loading, error} = useFetch<APIResponse>(`${apiUrl}?page=${page}`);
 
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const { setState } = useModalContext();
 
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageItems, setCurrentPageItems] = useState<Character[]>([]);
   const itemsPerPage = 8;
 
@@ -66,6 +68,9 @@ export const Dashboard = ()=>{
           items={characters} 
           itemsPerPage={itemsPerPage} 
           onPageChange={setCurrentPageItems}
+          setPage={setPage}       
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage} 
         />
         <Footer />
       </div>
