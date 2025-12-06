@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { SelectFilter } from "../../../components/Select/SelectFilter.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../redux/store.ts";
@@ -35,11 +35,13 @@ export const NavBar = () => {
       bg-gradient-to-r from-gray-900 via-black to-gray-800 
       border-b-4 border-purple-700
       shadow-lg
-      gap-4
+      gap-4 font-serif
     ">
-      <h1 className="text-3xl font-new font-extrabold text-green-400 tracking-wide">
-        Rick and Morty
-      </h1>
+      <a href="/" className="hover:scale-105 transition-transform">
+        <h1 className="text-3xl font-new font-extrabold text-green-400 tracking-wide">
+          Rick and Morty
+        </h1>
+      </a>
 
       <div className="flex items-center w-full max-w-md relative">
         <input
@@ -51,7 +53,7 @@ export const NavBar = () => {
             flex-1 px-4 py-2 
             rounded-2xl 
             border-2 border-purple-600 
-            bg-gray-300 text-black 
+            bg-gray-300 text-green-900 font-bold
             focus:outline-none focus:ring-2 focus:ring-purple-400
             shadow-md
             transition duration-200

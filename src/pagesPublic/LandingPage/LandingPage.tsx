@@ -26,7 +26,7 @@ export const LandingPage = () => {
 
       <img
         className=" fixed bottom-0 h-[55%] object-cover animate-bounce-glow"
-        src="/image/portal.webp"
+        src="/image/rick.webp"
         alt="Protal gif"
       />
     </section>

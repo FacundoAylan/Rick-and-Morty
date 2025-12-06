@@ -56,7 +56,7 @@ export const Pagination = <T,>({
   );
 
   return (
-    <div className="absolute flex justify-center items-center gap-2 w-full bottom-1 flex-wrap">
+    <div className="absolute flex justify-center items-center gap-2 w-full bottom-1 flex-wrap font-serif">
 
       {/* Previous */}
       <button

@@ -7,7 +7,7 @@ export const Footer = () => {
         border-t-4 border-purple-700 
         py-2 px-4 
         shadow-inner
-        flex justify-between
+        flex justify-between font-serif
       "
     >
       <p className="text-green-400 font-mono font-bold tracking-wide text-lg font-new">
