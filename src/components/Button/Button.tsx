@@ -27,12 +27,12 @@ export const CardButton = ({ children, parentMethod, className, image, alt }: Pr
     >
       {image && (
         <img
-          className="w-10 h-10 rounded-full border-2 border-purple-700 shadow-md group-hover:scale-110 transition-transform duration-200"
+          className="w-10 h-10 rounded-full border-2 border-purple-700 shadow-md"
           src={image}
           alt={alt ?? "Card button image"}
         />
       )}
-      <span className="relative z-10 text-lg tracking-wide group-hover:text-purple-900 transition-colors duration-200">
+      <span className="relative z-10 text-lg tracking-wide transition-colors duration-200">
         {children}
       </span>
     </button>
